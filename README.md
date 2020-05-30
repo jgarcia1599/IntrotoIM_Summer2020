@@ -1,7 +1,7 @@
 # Introduction to Interactive Media
 
 Summer 2020  
-Professor Michael Shiloh 
+Professor Michael Shiloh          
 Class Repo: https://github.com/michaelshiloh/IntroductionToInteractiveMedia
 
 
