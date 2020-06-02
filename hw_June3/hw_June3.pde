@@ -1,62 +1,63 @@
 //Code inspired from https://processing.org/examples/bouncybubbles.html
 
-int numBalls = 30;
+//Number of hearts in canvas
+int numHearts = 30;
 float spring = 0.05;
-float gravity = 0.03;
-float friction = -0.9;
-Ball[] balls = new Ball[numBalls];
+Heart[] hearts = new Heart[numHearts];
 PImage heart,sad,earth;
 boolean all_hearts = false;
 void setup() {
+
+  //Load Images
   heart = loadImage("heart.png");
   sad = loadImage("sad.png");
   earth = loadImage("happy_earth.png");
+
   size(800, 700);
-  for (int i = 0; i < numBalls; i++) {
-    balls[i] = new Ball(random(width), random(height), 50, i, balls);
+  //Fill array of type Heart with hearts
+  for (int i = 0; i < numHearts; i++) {
+    hearts[i] = new Heart(random(width), random(height), 50, i, hearts);
   }
-  noStroke();
-  fill(255, 204);
 }
 
 void draw() {
+  //Leaving trail code: if all objects are hearts, then stop drawing the backgroud again so as to leave atrail of hearts
   if(!all_hearts){
     background(255, 143, 143);
   }
-  
-  int hearts = 0;
+  //Counter to check whether or not hearts have been collided
+  int collided_hearts = 0;
 
-  for (Ball ball : balls) {
-    ball.collide();
-    ball.move();
-    ball.display(); 
-    if (ball.collision == true){
-      hearts++;
+  for (Heart heart : hearts) {
+    heart.collide();
+    heart.move();
+    heart.display(); 
+    if (heart.collision == true){
+      collided_hearts++;
     }
     
   }
-  if (hearts == numBalls){
+
+  //Seet boolean true when all hearts have collided
+  if (collided_hearts == numHearts){
     println("all are hearts");
     all_hearts = true;
   }
-  //if(all_hearts){
-  //  image(earth,width/2,height/2,400,300);
-    
-  //}
   
 }
 
-class Ball {
-  
+class Heart {
+  //This boolean tells the object whether to show a sad face or a heart
   boolean collision = false;
   float x, y;
   float diameter;
   float vx = 0.5;
   float vy = 0.5;
   int id;
-  Ball[] others;
+  Heart[] others;
  
-  Ball(float xin, float yin, float din, int idin, Ball[] oin) {
+ //Heart Constructor
+  Heart(float xin, float yin, float din, int idin, Heart[] oin) {
     x = xin;
     y = yin;
     diameter = din;
@@ -64,15 +65,16 @@ class Ball {
     others = oin;
   } 
   
+  //Collide function copied from https://processing.org/examples/bouncybubbles.html
   void collide() {
-    for (int i = id + 1; i < numBalls; i++) {
+    for (int i = id + 1; i < numHearts; i++) {
       float dx = others[i].x - x;
       float dy = others[i].y - y;
       float distance = sqrt(dx*dx + dy*dy);
       float minDist = others[i].diameter/2 + diameter/2;
+      //Collision
       if (distance < minDist) {
-        //Checking for tru collision between two sad faces
-
+        //Set bolean to true when there is collision
         collision = true;
         others[i].collision = true;
           
@@ -93,9 +95,11 @@ class Ball {
   }
   
   void move() {
+    //check for right an left walls. If collision, flip velocity
     if (x>=width || x<0){
       vx = -vx;
     }
+    //check for up and down  walls. If collision, flip velocity
      if (y>=height || y<=0){
       vy = -vy;
     } 
@@ -104,6 +108,7 @@ class Ball {
   }
   
   void display() {
+    //Display either sad face or heart depending on collision variable
     if(collision){
       image(heart,x, y, diameter, diameter);
     }
