@@ -1,4 +1,4 @@
-# Art with for loops and while loops
+# Art with for loops
 
 I wanted to explore the different types of art I could create using for loops and while loops. The first thing I made was something that resembles a colorful version of the static noise you see in old televisions that cannot connect to the network. 
 
@@ -14,7 +14,7 @@ I kept on tinkering with the code by increasing/decreasing the steps the art-cre
 <img src="art2_1.jpg">
 <img src="art2_2.jpg">
 
-Finally, I decided to keep the mosaic's circle patterns but change the color depending on the position of the circle. This led me to recreate thee flag of my country <a href="https://en.wikipedia.org/wiki/Honduras">Honduras</a>.
+Finally, I decided to keep the mosaic's circle pattern but change the color depending on the position of the circle. This led me to recreate the flag of my country <a href="https://en.wikipedia.org/wiki/Honduras">Honduras</a>.
 
 <img src="honduras.jpg">
 
