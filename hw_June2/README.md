@@ -2,7 +2,7 @@
 
 I wanted to explore the different types of art I could create using for loops and while loops. The first thing I made was something that resembles a colorful version of the static noise you see in old televisions that cannot connect to the network. 
 
-<img src="art1.jpg">
+<img style="width:200px;height:200px;" src="art1.jpg">
 
 It was made using a set of ellipses that I made along the y-axis with random fill color that I then moved along the x-axis with a variable called x-movement. The art creation process can be seen below. 
 
