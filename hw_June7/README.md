@@ -22,6 +22,6 @@ The normalization of the range created better results.
 
 <img src="img/second_attempt.jpg">
 
-In addition, I decided to use the normalization function in order to also change the opacity of the name based on how common the name is. This created an even better result that was less created and best visualized how common the names are as two thing indicate so to the users: the size of the text and the opacity of thee text's color. 
+In addition, I decided to use the normalization function in order to also change the opacity of the name based on how common the name is. This created an even better result that was less crowded and best visualized how common the names are as two things indicate so to the users: the size of the text and the opacity of the text's color. 
 
 <img src="img/third_attempt.jpg">
