@@ -9,11 +9,20 @@ PImage face;
 
 int scale_factor = 2;
 
+int savedTime;
+
+
+//Modifuy game conditions
+int modulus_creator = 300;
+int easy_level_treshold = 3000;
+int medium_level_treshold = 6000;
+
 ArrayList <Food> food_items = new ArrayList <Food>();
 Food sample;
 void setup() {
+  
   size(640, 480);
-  sample = new Food("burguer.png",random(width),-4,100,100,scale_factor);
+  sample = new Food("burguer.png",random(width),-4,100,100,scale_factor,1);
   food_items.add( sample);
   main_player = new Player("face_open.png");
   video = new Capture(this, 640/2, 480/2);
@@ -21,9 +30,44 @@ void setup() {
   opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);  
 
   video.start();
+  
+  savedTime = millis();
 }
 
 void draw() {
+  
+  println(frameCount);
+  //Easy Level
+  if (frameCount % 300 ==0 && frameCount<=easy_level_treshold) {
+    println("New easy burguer");
+    sample = new Food("burguer.png",random(width),-4,100,100,scale_factor,1);
+    food_items.add( sample);
+    println(food_items.size());
+  
+  }
+  
+  //Medium Level
+  
+   if (frameCount % 300 ==0 && frameCount>easy_level_treshold && frameCount <= medium_level_treshold ) {
+    println("New medium burguer");
+    sample = new Food("burguer.png",random(width),-4,100,100,scale_factor,2);
+    food_items.add( sample);
+    println(food_items.size());
+  
+  }
+
+// Hard level
+
+  if (frameCount % 300 ==0 && frameCount > medium_level_treshold) {
+    println("New medium burguer");
+    sample = new Food("burguer.png",random(width),-4,100,100,scale_factor,3);
+    food_items.add( sample);
+    println(food_items.size());
+  }
+  
+
+  
+  //println(frameCount);
   scale(scale_factor);
   opencv.loadImage(video);
   image(video, 0, 0);
@@ -41,7 +85,7 @@ void draw() {
     
     } 
   }
-  println(food_items.size());
+  //println(food_items.size());
   sample.draw();
   
   

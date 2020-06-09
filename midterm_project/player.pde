@@ -36,13 +36,14 @@ class Player{
     fill(0,0,255);
     ellipse(center_x,center_y,20,20);
     float check_distance = dist(center_x,center_y,received_food.food_x,received_food.food_y)/2;
-    line(center_x,center_y,received_food.center_x,received_food.center_y);
+    //line(center_x,center_y,received_food.center_x,received_food.center_y);
     //println(check_distance);
     //float cool_xrange = 1;
     //(center_x-cool_xrange<=received_food.center_x && received_food.center_x<=center_x + cool_xrange)
     if (check_distance<=15)
     {
-         println("Ok I ate it");
+         //println("Ok I ate it");
+         received_food.eaten = true;
          return true;
     }
     else{
