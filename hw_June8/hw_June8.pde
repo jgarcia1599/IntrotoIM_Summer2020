@@ -7,7 +7,7 @@
 PImage img;
 PImage eyes;
 void setup() {
-  size(500, 500); yes
+  size(500, 500);
   //Load the image and the
   img = loadImage( "jellyfish.jpg" );
   eyes = loadImage("eyes.png");
@@ -63,6 +63,7 @@ void draw() {
   updatePixels();
 
   //Change the face of the jellyfish depending on the position of the mouse
+  //This could be done with the distance function
   if((mouseX >= 140 && mouseX <= 210) && (mouseY>=130 && mouseY <= 200)){
     sad_smile();
     
