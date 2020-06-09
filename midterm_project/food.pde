@@ -4,6 +4,8 @@ class Food{
   float downward_velocity;
   boolean eaten = false;
   int scale;
+  
+  boolean reduce_lives_once = true;
   Food(String received_image_path,float received_x, float received_y,float received_width,float received_height,int received_scale,int received_downward_velocity){
      food_image = loadImage(received_image_path);
      scale = received_scale;
@@ -22,6 +24,14 @@ class Food{
       center_y = food_y + food_height/2;
       image(food_image,food_x,food_y,food_width,food_height); 
     }
+  }
+  void check_if_reduce_lives(){
+    if(food_y>height && eaten == false && reduce_lives_once){    
+      lives -=1;
+      reduce_lives_once = false;
+    }
+  
+  
   }
   
   
