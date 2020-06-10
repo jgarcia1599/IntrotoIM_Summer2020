@@ -20,17 +20,20 @@ Coding out the project had its fair bits of challenges, as with any other projec
 
  Belowe are some of the changes encountered as I made the game:
 
-- Dealing with calculations applied before and after scaling: 
+- Dealing with calculations applied before and after scaling:
+    
 The Open CV beginner example which acted as the boilerplate for this project required me to scale the video feed. This brought me back to my Computer Graphics class of dealing with matrix transformation and a change of coordinate system. In order to counter act this transformations, I "scaled down" so to speak every Food object by  passing in the scale factor in the constructor and dividing all of its properties (x,y,width,etc.) by the scale factor. This also prevented from doing complicated matrix algebra in every draw loop frame. 
     
 - Using the millis library to create new food items based on time. 
+     
 I decided to use frame count instead as the millis library was less accurate.     
    
 - Separating the y space between the different food items appearing. 
-  
+      
 This is still an issue I have, especially in the medium and hard levels where I want more items to appear consecutively to the user. I somehow masked this issue by increasing the velocity as well so as to create the illusion that they are separated. 
 
 - Making the  player loose after 3 food items_ go out of range.
+    
 
 ```java
   boolean check_if_loose(Food received_food){
