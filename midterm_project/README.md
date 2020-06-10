@@ -54,4 +54,4 @@ This projects is merely an extension of some very useful tutorials and explanati
 - <a href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6aG2RJHErXKSWFDXU4qo_ro">Dan Shiffman's Computer Vision Tutorial</a>
 - <a href="https://github.com/atduskgreg/opencv-processing">OpenCV Processing Library</a>
 - <a href="https://www.shakeshack.com/">Shake Shack</a>, for being delicious and awesome.
-- Henry Roberts, for photoshoping the Food Pictures.
+- Henry Roberts, for helping me with photoshoping the Food Pictures.
