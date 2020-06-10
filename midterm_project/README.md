@@ -48,9 +48,10 @@ The problem with this loose condition is that it was reducing a live every singl
 - Restarting the game. I think a lot of memory is being wasted.
 As stated before, I am instatiating a lot of objects and I am not doing any clean up. One of the improvements I could to do is to understand how Java works on a lower-level so as to free up unused memory that comes from completely deleting the eaten food object instances. This will make my game more memory efficient and will make my computer less hot after playing this game for 5 minutes. 
 
-# References 
+# References and Resources
 This projects is merely an extension of some very useful tutorials and explanations online. Thanks to:
 - The Processing Reference Page and the Processing Forum
 - <a href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6aG2RJHErXKSWFDXU4qo_ro">Dan Shiffman's Computer Vision Tutorial</a>
 - <a href="https://github.com/atduskgreg/opencv-processing">OpenCV Processing Library</a>
 - <a href="https://www.shakeshack.com/">Shake Shack</a>, for being delicious and awesome.
+- Henry Roberts, for photoshoping the Food Pictures.
