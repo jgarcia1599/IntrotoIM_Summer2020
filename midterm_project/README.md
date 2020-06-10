@@ -45,7 +45,8 @@ This is still an issue I have, especially in the medium and hard levels where I 
 ```
 The problem with this loose condition is that it was reducing a live every single frame. What I did to solve this was to implement this function on the Food Class itself and make sure that a food item can only reduce one of the user's lives. Maybe this issue could be solved altogether if I can just delete the instance of a class, but I'm unaware if this can be done in Java. 
 
-- Restarting the game. I think a lot of memory is being wasted.        
+- Restarting the game. I think a lot of memory is being wasted. 
+      
 As stated before, I am instatiating a lot of objects and I am not doing any clean up. One of the improvements I could to do is to understand how Java works on a lower-level so as to free up unused memory that comes from completely deleting the eaten food object instances. This will make my game more memory efficient and will make my computer less hot after playing this game for 5 minutes. 
 
 # References and Resources
