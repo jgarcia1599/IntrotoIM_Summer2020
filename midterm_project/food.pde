@@ -41,10 +41,5 @@ class Food{
       reduce_lives_once = false;
     }
   
-  
   }
-  
-  
-
-
 }

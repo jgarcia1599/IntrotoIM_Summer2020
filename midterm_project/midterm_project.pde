@@ -226,14 +226,11 @@ void draw() {
      score = 0;
      frameCount = 0;
      
-     
     }
    }
-
-  
+ 
   }
-
-    
+   
 }
 
 // Utility function required by open cv and processing's video library

@@ -8,9 +8,7 @@ class Player{
   
   //Player's constructor function
   Player(String received_image_path){
-    image = loadImage(received_image_path);
-    
-    
+    image = loadImage(received_image_path);   
   }
   
   //Player's draw function
@@ -40,10 +38,5 @@ class Player{
     else{
       return false;
     }
-  }
-  
-  
-  
-  
-  
+  }  
 }
