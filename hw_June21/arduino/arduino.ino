@@ -27,7 +27,6 @@ void setup()
 //initialize serial communications at a 9600 baud rate
   Serial.begin(9600);
 
-//  establishContact();  // send a byte to establish contact until receiver responds 
 }
 
 void loop()
@@ -78,11 +77,4 @@ void loop()
 //  Serial.print("BLUE: ");
 //  Serial.print(buttonState_blue);
 //  Serial.print("\n");
-}
-
-void establishContact() {
-  while (Serial.available() <= 0) {
-  Serial.println("A");   // send a capital A
-  delay(300);
-  }
 }
