@@ -1,14 +1,15 @@
 import processing.serial.*; //import the Serial library
- Serial myPort;  //the Serial port object
- String value;
- char val;
-// since we're doing serial handshaking, 
-// we need to check if we've heard from the microcontroller
-boolean firstContact = false;
+Serial myPort;  //the Serial port object
+ 
+ 
+String raw_value;// Obtain the raw value from arduino
+char val;// color value afteer string processing
 
 color bgColor = color( 0 ); // color of background
 color penColor = color( 60, 120, 20 ); // color of our pen
-color colorvariable = color(255);
+color colorvariable = color(255); // initially, the color u draw on is white
+
+boolean mouse_pressed = false; // global boolean to check if the mouse is pressed
 
 void setup() {
   //  initialize your serial port and set the baud rate to 9600
@@ -29,31 +30,51 @@ void setup() {
 
 void draw() {
   if ( myPort.available() > 0) {  // If data is available,
-      value = myPort.readStringUntil('\n');         // read it and store it in val
-      
-      //char [] val_array = val.toCharArray();
-      //println(val_array);
-      value = value.substring( 0, value.length()-2 );
-      char [] val_array = value.toCharArray();
+      raw_value = myPort.readStringUntil('\n');         // read it and store it in val
+      //process the raw value to obtain the char we want (R,G,B, OR Y)
+      raw_value = raw_value.substring( 0, raw_value.length()-2 );
+      char [] val_array = raw_value.toCharArray();
       val = val_array[0];
-      //println(val_array);
-      print(val);
-      print("\n");
+      //print(val);
+      //print("\n");
   }
+  //CALL THE SET COLOR FUNCTION BASED ON THE VAL VALUE OBTAINED FROM ARDUINO
   setcolor();
-  noStroke();
-  fill(colorvariable);
-  ellipse(mouseX,mouseY,20,20);
-
-}
-
-void keyPressed() {
-  background( bgColor );
-}
-
-void setcolor(){
   
-  //print(val);
+  //DRAW ONLY IF THE MOUSE IS PRESSED
+  if (mouse_pressed){
+      noStroke();
+      fill(colorvariable);
+      ellipse(mouseX,mouseY,20,20);
+  
+  }
+
+
+}
+
+// RESTART THE SKETCH BY PRESSING THE ENTER KEY
+void keyPressed() {
+  if (keyCode == ENTER){
+     background( bgColor );
+  }
+ 
+}
+
+// CHANGE mouse_pressed valuee on presed and released
+void mousePressed(){
+  mouse_pressed = true;
+
+}
+void mouseReleased(){
+  
+  mouse_pressed = false;
+
+}
+
+
+//change color based on obtaine
+void setcolor(){
+
  if (val == 'R'){
     colorvariable = color(255,0,0);
 
@@ -70,8 +91,4 @@ void setcolor(){
     colorvariable = color(0, 0, 255);
 
   }
-
-
-
-
 }
