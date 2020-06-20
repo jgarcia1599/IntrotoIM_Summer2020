@@ -1,4 +1,3 @@
-Final Project: 
 # ARt: An  Augmented Reality Tool for fun, artistic creations
 ## Technologies:
 - HTML
