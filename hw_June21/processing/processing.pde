@@ -1,6 +1,7 @@
 import processing.serial.*; //import the Serial library
  Serial myPort;  //the Serial port object
- String val;
+ String value;
+ char val;
 // since we're doing serial handshaking, 
 // we need to check if we've heard from the microcontroller
 boolean firstContact = false;
@@ -28,12 +29,13 @@ void setup() {
 
 void draw() {
   if ( myPort.available() > 0) {  // If data is available,
-      val = myPort.readStringUntil('\n');         // read it and store it in val
+      value = myPort.readStringUntil('\n');         // read it and store it in val
       
       //char [] val_array = val.toCharArray();
       //println(val_array);
-      val = val.substring( 0, val.length()-2 );
-      //char [] val_array = val.toCharArray();
+      value = value.substring( 0, value.length()-2 );
+      char [] val_array = value.toCharArray();
+      val = val_array[0];
       //println(val_array);
       print(val);
       print("\n");
@@ -52,19 +54,19 @@ void keyPressed() {
 void setcolor(){
   
   //print(val);
- if (val == "RED"){
+ if (val == 'R'){
     colorvariable = color(255,0,0);
 
   }
-  if (val =="GREEN"){
+  if (val =='G'){
     colorvariable = color(0,255,0);
 
   }
-  if (val =="YELLOW"){
+  if (val =='Y'){
     colorvariable = color(238, 255, 0);
 
   }
-  if (val =="BLUE"){
+  if (val =='B'){
     colorvariable = color(0, 0, 255);
 
   }
